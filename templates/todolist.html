@@ -1,36 +1,32 @@
 {% extends 'base.html' %} 
 {% block title %} 
-<title> To Do List </title>
+<title> To do List </title>
 {% endblock %} 
 
-{% block content %}
-<div class="container">
-    <p style="text-align: center; font-size: 30px; font-weight: bold; padding-top: 30px;">To Do List</p>
-  
-    <form method="POST">
-        {% csrf_token %}
-  
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Name</label>
-            <input name="name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="employment...">
-        </div>
-
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Starttime</label>
-            <input name="starttime" type="time" class="form-control" id="exampleFormControlInput1" placeholder="starttime...">
-        </div>
-
-        <div class="form-group">
-          <label for="exampleFormControlInput1">endtime</label>
-          <input name="endtime" type="time" class="form-control" id="exampleFormControlInput1" placeholder="endtime...">
-        </div>
-
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Date</label>
-          <input name="date" type="date" class="form-control" id="exampleFormControlInput1" placeholder="date">
-        </div>
-        <button type="submit" class="btn btn-secondary">Submit</button>
-    </form>
-  </div>
-
+{% block content %} 
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Employment</th>
+        <th scope="col">Starttime</th>
+        <th scope="col">Endtime</th>
+        <th scope="col">Date</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    {% for todolist in todolists %}
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>{{ todolist.name }}</td>
+        <td>{{ todolist.starttime }}</td>
+        <td>{{ todolist.endtime }}</td>
+        <td>{{ todolist.date }}</td>
+        <td><input type="checkbox" checked="true" /> Was Done</td>
+        <td><input type="checkbox" checked="false" />Was not Done </td>
+      </tr>
+    </tbody>
+  </table>
+    {% endfor %}
 {% endblock %}

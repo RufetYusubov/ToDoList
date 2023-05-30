@@ -7,7 +7,7 @@ class ToDoListModel(models.Model):
     starttime = models.TimeField(blank=True,null=True)
     endtime = models.TimeField(blank=True,null=True)
     date = models.DateField(blank=True,null=True)
-    status = models.BooleanField()
+    status = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = "todolist"
