@@ -15,8 +15,8 @@
         <th scope="col">Status</th>
       </tr>
     </thead>
-    {% for todolist in todolists %}
     <tbody>
+      {% for todolist in todolists %}
       <tr>
         <th scope="row">1</th>
         <td>{{ todolist.name }}</td>
@@ -26,7 +26,7 @@
         <td><input type="checkbox" checked="true" /> Was Done</td>
         <td><input type="checkbox" checked="false" />Was not Done </td>
       </tr>
+      {% endfor %}
     </tbody>
   </table>
-    {% endfor %}
 {% endblock %}
