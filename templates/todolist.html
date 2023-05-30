@@ -23,8 +23,11 @@
         <td>{{ todolist.starttime }}</td>
         <td>{{ todolist.endtime }}</td>
         <td>{{ todolist.date }}</td>
-        <td><input type="checkbox" checked="true" /> Was Done</td>
-        <td><input type="checkbox" checked="false" />Was not Done </td>
+        {% if todolist.status %}
+        <td><input type="checkbox" checked /> Was Done</td>
+        {% else %}
+        <td><input type="checkbox"  />Was not Done </td>
+        {% endif %}
       </tr>
       {% endfor %}
     </tbody>
