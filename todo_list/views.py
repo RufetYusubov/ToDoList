@@ -62,7 +62,6 @@ def buildingalist(request):
             endtime = endtime,
             date = date,
         )
-        messages.info(request, "qeyde alindi")
         return redirect("todolist")
     return render (request, 'buildingalist.html')
 #------------------------------------------------------------------------
@@ -77,5 +76,10 @@ def todolist(request):
     }
 
     return render(request,'todolist.html',context)
+#------------------------------------------------------------
+def deletetodolist(request,id):
+    todolist = ToDoListModel.objects.get(id=id)
+    todolist.delete()
+    return redirect("todolist",id=todolist.id)
 
 
