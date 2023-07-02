@@ -80,6 +80,6 @@ def todolist(request):
 def deletetodolist(request,id):
     todolist = ToDoListModel.objects.get(id=id)
     todolist.delete()
-    return redirect("todolist",id=todolist.id)
+    return redirect("todolist")
 
 

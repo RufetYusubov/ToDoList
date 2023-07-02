@@ -28,9 +28,7 @@
         {% else %}
         <td><input type="checkbox" />Was not Done </td>
         {% endif %}
-        {% if todolist in todolists %}
         <td><a href = "{% url 'delete' todolist.id %}" style = "float:right;">Delete</a></td>
-        {% endif %}
       </tr>
       {% endfor %}
     </tbody>
